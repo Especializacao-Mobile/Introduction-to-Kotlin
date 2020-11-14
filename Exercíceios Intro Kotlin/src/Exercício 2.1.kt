@@ -20,9 +20,11 @@ fun main() {
 
 fun getIntValue(message: String, errorMessage: String): Int{
     var value = message.read().toIntOrNull() ?: 0
+    print(value <= 0 || value in arrayAges)
     while (value <= 0 || value in arrayAges) {
         println(errorMessage)
         value = message.read().toIntOrNull() ?: 0
     }
+    arrayAges.add(value)
     return value
 }
